@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkadaş Mahkemesi: Çiz & Puanla</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- LOBİ EKRANI -->
+        <div id="lobby-screen" class="screen">
+            <h1>🎨 ARKADAŞ MAHKEMESİ</h1>
+            <p>Oda kuruldu! Adını yaz ve oyunu başlat.</p>
+            
+            <div class="input-group">
+                <input type="text" id="player-name" placeholder="Oyuncu Adın..." autocomplete="off">
+            </div>
+
+            <!-- Ayarlar (Kurucu Paneli) -->
+            <div class="settings-box">
+                <h3>⚙️ Oyun Ayarları</h3>
+                <div class="setting-item">
+                    <label>Toplam Tur:</label>
+                    <select id="setting-rounds">
+                        <option value="3">3 Tur</option>
+                        <option value="5" selected>5 Tur</option>
+                        <option value="10">10 Tur</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Tur Süresi:</label>
+                    <select id="setting-time">
+                        <option value="30">30 Saniye</option>
+                        <option value="45" selected>45 Saniye</option>
+                        <option value="60">60 Saniye</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Toplam Oyuncu:</label>
+                    <select id="setting-players">
+                        <option value="2">2 Kişi</option>
+                        <option value="3" selected>3 Kişi</option>
+                        <option value="4">4 Kişi</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="startGame()" class="primary-btn">🚀 Oyunu Başlat (Kurucu)</button>
+        </div>
+
+        <!-- ÇİZİM EKRANI -->
+        <div id="game-screen" class="screen hidden">
+            <header>
+                <div id="round-indicator">Tur: 1/5</div>
+                <div id="target-word">Kelime: Yükleniyor...</div>
+                <div id="timer">⏱️ 45s</div>
+            </header>
+
+            <div class="canvas-container">
+                <canvas id="paintCanvas" width="450" height="320"></canvas>
+            </div>
+
+            <!-- Renk ve Kalem Boyutu Paneli -->
+            <div class="drawing-tools">
+                <div class="palette">
+                    <div class="color-btn active" style="background: #0f172a;" onclick="setColor('#0f172a', this)"></div>
+                    <div class="color-btn" style="background: #ef4444;" onclick="setColor('#ef4444', this)"></div>
+                    <div class="color-btn" style="background: #3b82f6;" onclick="setColor('#3b82f6', this)"></div>
+                    <div class="color-btn" style="background: #22c55e;" onclick="setColor('#22c55e', this)"></div>
+                    <div class="color-btn" style="background: #f59e0b;" onclick="setColor('#f59e0b', this)"></div>
+                    <div class="color-btn" style="background: #ec4899;" onclick="setColor('#ec4899', this)"></div>
+                </div>
+                <div class="sizes">
+                    <button class="size-btn" onclick="setSize(2)">İnce</button>
+                    <button class="size-btn active" onclick="setSize(5)">Orta</button>
+                    <button class="size-btn" onclick="setSize(10)">Kalın</button>
+                </div>
+            </div>
+
+            <div class="tools">
+                <button onclick="clearCanvas()" class="secondary-btn">🗑️ Temizle</button>
+                <button onclick="submitDrawing()" class="success-btn">🚀 Çizimi Tamamla</button>
+            </div>
+        </div>
+
+        <!-- JÜRİ / OYLAMA EKRANI -->
+        <div id="voting-screen" class="screen hidden">
+            <h2>⚖️ Jüri Mahkemesi</h2>
+            <p id="voting-info">Jüri Üyesi Puan Veriyor...</p>
+            
+            <div class="preview-box">
+                <canvas id="previewCanvas" width="300" height="200"></canvas>
+            </div>
+
+            <div class="rating-box">
+                <div class="score-input-group">
+                    <input type="number" id="score-input" min="0" max="10" step="0.5" placeholder="Örn: 7.5">
+                    <span class="score-label">/ 10</span>
+                </div>
+                <button onclick="submitScore()" class="primary-btn" id="vote-btn">Puanı Kaydet & Sıradaki Jüri</button>
+            </div>
+        </div>
+
+        <!-- TUR SONU / SKOR TABLOSU EKRANI -->
+        <div id="result-screen" class="screen hidden">
+            <h2>🏆 Tur Sonucu & Ortalama Puan</h2>
+            <div id="result-text" class="box">Puanlar hesaplanıyor...</div>
+            <button onclick="nextRound()" id="next-btn" class="primary-btn">Sonraki Tura Geç</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
