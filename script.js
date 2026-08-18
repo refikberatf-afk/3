@@ -1,11 +1,11 @@
 const words = [
-    "Ütü", "Çaydanlık", "Helikopter", "Gözlük", "Muz", 
-    "Bilgisayar", "Uçak", "Kılıç", "Gitar", "Balık", "Ağaç", 
-    "Araba", "Ay", "Güneş", "Şemsiye", "Pizza", "Kalem", "Kürt",
-    "Pipi", "Kaşar", "Seks", "Ters Düz", "Lahmacun",
-    "Kel", "Salatalık Turşusu", "Gizli Ajan", "Zengin Fakir",
-    "Uçan İnek", "Deli Doktoru", "Süper Kahraman", 
-    "Tavuk", "Görünmez Adam", "Zombi İstilası", "Bozuk Para",
+    "Ütü", "Çaydanlık", "Helikopter", "Gözlük", "Muz", "Hendekteki Yalnız Berat...", 
+    "Bilgisayar", "Uçak", "Kılıç", "Gitar", "Balık", "Ağaç", "Twerk Atan Musi", 
+    "Araba", "Ay", "Güneş", "Şemsiye", "Pizza", "Kalem", "Kürt", "Ön Kaldıran Berat", 
+    "Pipi", "Taşşak", "Kaşar", "Seks", "Ters Düz", "Lahmacun", "Masaya Dayayan Selim", 
+    "Kel", "Salatalık Turşusu", "Gizli Ajan", "Zengin Fakir", "31 Çeken Selim", 
+    "Uçan İnek", "Deli Doktoru", "Süper Kahraman", "Tofaş", "Dildo",
+    "Tavuk", "Görünmez Adam", "Zombi İstilası", "Bozuk Para", "Köpek Gören Mushab, 
     "Kırmızı Biber", "Sokak Kedisi", "Hızlı Tren", "Kırık Kalp", "Hayalet Avcısı"
 ];
 
