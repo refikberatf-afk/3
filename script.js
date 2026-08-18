@@ -5,7 +5,7 @@ const words = [
     "Pipi", "Taşşak", "Kaşar", "Seks", "Ters Düz", "Lahmacun", "Masaya Dayayan Selim", 
     "Kel", "Salatalık Turşusu", "Gizli Ajan", "Zengin Fakir", "31 Çeken Selim", 
     "Uçan İnek", "Deli Doktoru", "Süper Kahraman", "Tofaş", "Dildo",
-    "Tavuk", "Görünmez Adam", "Zombi İstilası", "Bozuk Para", "Köpek Gören Mushab, 
+    "Tavuk", "Görünmez Adam", "Zombi İstilası", "Bozuk Para", "Köpek Gören Mushab", 
     "Kırmızı Biber", "Sokak Kedisi", "Hızlı Tren", "Kırık Kalp", "Hayalet Avcısı"
 ];
 
