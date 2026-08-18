@@ -1,7 +1,12 @@
 const words = [
-    "Ütü", "Çaydanlık", "Helikopter", "Kedi", "Gözlük", "Muz", 
+    "Ütü", "Çaydanlık", "Helikopter", "Gözlük", "Muz", 
     "Bilgisayar", "Uçak", "Kılıç", "Gitar", "Balık", "Ağaç", 
-    "Araba", "Ay", "Güneş", "Şemsiye", "Pizza", "Kalem"
+    "Araba", "Ay", "Güneş", "Şemsiye", "Pizza", "Kalem", "Kürt",
+    "Pipi", "Kaşar", "Seks", "Ters Düz", "Lahmacun",
+    "Kel", "Salatalık Turşusu", "Gizli Ajan", "Zengin Fakir",
+    "Uçan İnek", "Deli Doktoru", "Süper Kahraman", 
+    "Tavuk", "Görünmez Adam", "Zombi İstilası", "Bozuk Para",
+    "Kırmızı Biber", "Sokak Kedisi", "Hızlı Tren", "Kırık Kalp", "Hayalet Avcısı"
 ];
 
 let playerName = "";
@@ -126,7 +131,6 @@ function submitDrawing() {
     pCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
     pCtx.drawImage(canvas, 0, 0, previewCanvas.width, previewCanvas.height);
 
-    // Oylama turunu sıfırla (Çizen hariç diğerleri jüri olacak, yani toplam oyuncu - 1 kadar jüri oy verecek)
     currentJuryIndex = 1;
     roundScores = [];
     updateVotingPrompt();
@@ -134,7 +138,7 @@ function submitDrawing() {
 
 function updateVotingPrompt() {
     let totalJuries = totalPlayers - 1;
-    if (totalJuries < 1) totalJuries = 1; // En az 1 jüri olsun
+    if (totalJuries < 1) totalJuries = 1;
 
     document.getElementById('voting-info').textContent = `Jüri Üyesi ${currentJuryIndex} / ${totalJuries} puan veriyor:`;
     document.getElementById('score-input').value = "";
@@ -158,11 +162,9 @@ function submitScore() {
     if (totalJuries < 1) totalJuries = 1;
 
     if (currentJuryIndex < totalJuries) {
-        // Sonraki jüriye geç
         currentJuryIndex++;
         updateVotingPrompt();
     } else {
-        // Tüm jüri oylamaları bitti, ORTALAMAYI HESAPLA!
         let sum = roundScores.reduce((a, b) => a + b, 0);
         let averageScore = sum / roundScores.length;
 
@@ -174,7 +176,6 @@ function submitScore() {
         let nextBtnText = currentRound >= totalRounds ? "🏆 Oyunu Bitir & Sonucu Gör" : "Sonraki Tura Geç";
         document.getElementById('next-btn').textContent = nextBtnText;
 
-        // Jüri oylarnın detayını ve ortalamayı ekrana yazdır
         document.getElementById('result-text').innerHTML = `
             👤 Çizen Oyuncu: <b>${playerName}</b><br>
             🎯 Tamamlanan Tur: <b>${currentRound} / ${totalRounds}</b><br>
